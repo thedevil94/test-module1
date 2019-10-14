@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>check-old-year</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Check-old-year</legend>
+        <input type="number" id="number">
+        <button onclick="checkOldYear()">old-year</button>
+        <pre id="result"></pre>
+    </fieldset>
+    <script>
+        let date = new Date();
+        let year = date.getFullYear();
+        function checkOldYear() {
+            let num = +document.getElementById("number").value;
+            if (num > year) {
+                alert("Nhập số năm sinh không đúng");
+            } else {
+                let oldYear = year - num;
+                document.getElementById("result").innerHTML += oldYear;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>count-prime</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Count prime</legend>
+        <input type="number" id="prime">
+        <pre id="resultPrime"></pre>
+        <button onclick="countPrime()">Prime</button>
+    </fieldset>
+
+    <script>
+        function countPrime() {
+            let count = 0;
+            let start = 1;
+            let number = document.getElementById("prime").value;
+            while (count < number){
+                if (checkPrime(start)){
+                    count++;
+                    document.getElementById("resultPrime").innerHTML += start + ", ";
+                }
+                start++;
+            }
+        }
+
+        function checkPrime(number) {
+            if (number < 2){
+                return false;
+            }else{
+                for (let i = 2; i < Math.sqrt(number); i++){
+                    if (number %i === 0){
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+    </script>
+</body>
+</html>
